@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drill 2</title>
+    <style>
+        body {
+            font-family:'Courier New', Courier, monospace;
+            margin-top: 50px;
+            text-align: center;
+        }
+        .header-box {
+            display: inline-block;
+            padding: 15px 40px;
+            border-radius: 15px;
+            border: 2px solid rgb(185, 206, 185);
+            margin-bottom: 30px;
+            background-color: rgb(127, 158, 127);
+        }
+        input, select {
+            width: 600px;
+            padding: 10px;
+            font-size: 14px;
+            border-radius: 10px;
+            border: 2px solid black;
+        }
+        button {
+            width: 220px;
+            padding: 15px;
+            font-size: 18px;
+            border-radius: 10px;
+            border: 2px solid rgb(127, 158, 127);
+            font-family:'Courier New', Courier, monospace;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header-box">
+        <h1>Basic Calculator Version 2.0</h1>
+    </div>
+    <div>
+        <label for="num1">First Number:</label><br>
+        <input type="number" id="num1" placeholder="Enter First Number">
+
+        <br><br>
+
+        <label for="num2">Second Number:</label><br>
+        <input type="number" id="num2" placeholder="Enter Second Number">
+
+        <br><br>
+
+        <label for="operation">Operation:</label><br>
+		    <select id="operation" name="operator">
+                <option value="">--Select Operation--</option>
+		    	<option value="add">Addition (+)</option>
+		    	<option value="sub">Subtraction (-)</option>
+		    	<option value="mul">Multiplication (x)</option>
+		    	<option value="div">Division (/)</option>
+		    </select> 
+
+        <br><br>
+
+        <button onclick="displayMe()">Calculate Result</button>
+    </div>
+    <script>
+        function displayMe(){
+            let num1= Number(document.getElementById("num1").value);
+            let num2= Number(document.getElementById("num2").value);
+            let operation= document.getElementById("operation").value;
+            let result;
+
+            if (operation === "add"){
+                result = num1+num2
+            }
+            else if (operation === "sub"){
+                result = num1-num2
+            }
+            else if (operation === "mul"){
+                result = num1*num2
+            }
+            else if (operation === "div"){
+                if(num2 === 0){
+                    alert ("Cannot Divide by zero!")
+                    return;
+                }
+                result = num1/num2
+            }
+            
+            alert("The result is: " + result);
+        }
+    </script>
+    
+</body>
+</html>
